@@ -83,7 +83,7 @@ async function copyContent(){
 slider.addEventListener('input',(e)=>{
     passwordLength = e.target.value;
     handleSlider();
-})
+});
 function generatePassword(){
     if(passwordDisplay.value){
         copyContent();
