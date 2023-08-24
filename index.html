@@ -8,13 +8,13 @@
 </head>
 
 <body>
-    <div class="inputContainer">
+    <div class="Container">
         <h1>PASSWORD GENERATOR</h1>
         <div class="diaplay-container">
-            <input readonly placeholder="PASSWORD" type="text" data-passwordDispaly>
-            <button>
+            <input placeholder="PASSWORD" type="text" id="name" readonly data-passwordDisplay>
+            <button copy>
                 <span hidden CopyMsg>copied</span>
-                <img src="copy.svg" alt="copy" width="23" height="23" copy>
+                <img src="copy.svg" alt="copy" width="23" height="23" >
             </button>
 
             <div class="inputContainer">
@@ -23,23 +23,23 @@
                     <p data-len>0</p>
                 </div>
 
-                <input type="range" min="1" max="20" class="slider">
+                <input type="range" min="1" max="20" step="1" class="slider">
 
                 <div>
-                    <input type="checkbox" name="" id="uppercase">
-                    <label>Include Uppercase lables</label>
+                    <input type="checkbox"  id="uppercase">
+                    <label for="uppercase">Include Uppercase lables</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="" id="lowerCase">
-                    <label>Include LowerCCase lables</label>
+                    <input type="checkbox"  id="lowerCase">
+                    <label for="lowerCase">Include LowerCase lables</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="" id="number">
-                    <label>Include Numbers lables</label>
+                    <input type="checkbox"  id="number">
+                    <label for="number">Include Numbers lables</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="" id="symbol">
-                    <label>Include Symbol lables</label>
+                    <input type="checkbox"  id="symbol">
+                    <label for="symbol">Include Symbol lables</label>
                 </div>
 
                 <div class="strengthContainer">
