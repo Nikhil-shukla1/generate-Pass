@@ -10,24 +10,45 @@ const number = document.querySelector("#number");
 const indicator = document.querySelector("[data-indicator]");
 const generateBtn = document.querySelector(".generateButton");
 const allcheckBox = document.querySelectorAll("input[type=checkbox]");
+const theme = document.querySelector(".moon");
+const theme1 = document.querySelector(".inputContainer");
+const theme2 = document.querySelector(".display-container");
+const theme3 = document.querySelector("check");
 
 const symString = "!@#$%^&*()_+{}|:><?`-=[];',./~";
 let password = "";
 let passwordLength = 10;
 let checkCount=0;
+let light = false;
 
 handleSlider();
 
-
+theme.addEventListener('click',()=>{
+    if(light === true){
+        theme.innerHTML="🌛";
+        light = false;
+    }
+    else{
+        theme.innerHTML="🌞";
+        light= true;
+    }
+    document.body.classList.toggle('light-mode');
+    theme1.classList.toggle('lm-inputContainer');
+    theme2.classList.toggle('lm-display-container');
+    theme3.classList.toggle("lm-check");
+})
 
 function handleSlider(){
     slider.value = passwordLength;
     lengthDisplay.innerText = passwordLength;
+    const min = slider.min;
+    const max = slider.max;
+    slider.style.backgroundSize = (passwordLength-min)*100/(max-min)+ "% 100%";
 
 }
 function setIndicator(color){
     indicator.style.backgroundColor = color;
-    indicator.style.shadowColor = "white";
+    indicator.style.shadowColor = color;
 }
 function getRandomInteger(min,max){
     return  Math.floor(Math.random()*(max-min))+min;
@@ -51,15 +72,15 @@ function calcStrength(){
     let low = false;
     let sym = false;
 
-    if(upperCase.Checked) upp = true;
-    if(lowerCase.Checked) low = true;
-    if(number.Checked) num = true;
-    if(symbol.Checked) sym = true;
+    if(upperCase.checked) upp = true;
+    if(lowerCase.checked) low = true;
+    if(number.checked) num = true;
+    if(symbol.checked) sym = true;
 
     if(upp && low && (sym || num) && passwordLength>=8){
         setIndicator("#0f0");
     }
-    else if(low || num || sym || upp){
+    else if((low|| upp) && (num || sym) && passwordLength>=6 ){
         setIndicator("#ff0");
     }
     else{

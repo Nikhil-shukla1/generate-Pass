@@ -7,6 +7,7 @@
     font: italic;
 }
 
+
 :root {
 
     --dk-violet: hsl(268, 75%, 9%);
@@ -28,38 +29,40 @@
 body {
     width: 100vw;
     height: 100vh;
-    color: aliceblue;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(231deg, rgba(22, 6, 40, 1) 0%, rgba(52, 28, 79, 1) 50%, rgba(88, 7, 125, 1) 100%);
+    background: rgb(3, 2, 40);
+    /* background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(10, 27, 91) 55%, rgb(53, 69, 72) 100%); */
 }
-
+.light-mode {
+    background-color:rgb(249, 202, 248)
+}
 .Container {
     width: 90%;
     max-width: 450px;
 }
 
 h1 {
-    color: var(--pl-white);
-    opacity: 0.75;
+    color:var(--vb-yellow);;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center;
     line-height: 2;
+    
 }
 
+
 .display-container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: var(--dk-violet);
-    border-radius: 1rem;
-    border-bottom: 0.35rem solid var(--lt-violet2);
-    margin: 1rem 0;
-    padding-top: 0.35rem;
+  
+  border: none;
+  outline: none;
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
 }
 
 
@@ -67,33 +70,36 @@ h1 {
     width: 100%;
     background-color: transparent;
     padding: 1.15rem 1rem;
-    color: var(--vb-yellow);
+    color: black;
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 30px;
     letter-spacing: 1px;
     padding-right: 3.25rem;
     border:none;
+    outline: none;
+
   }
   
-.display::placeholder {
+/* .display::placeholder {
     position:absolute;
     top: 50%;
     left: 1.5rem;
     font-size: 1.5rem;
     line-height:30px;
-    color:var(--vb-yellow);
     opacity: 0.65;
     text-transform: uppercase;
     transform: translateY(-50%);
-}
+} */
 
 .inputContainer{
     width:100%;
-    background-color: var(--dk-violet);
+    /* background-color: var(--dk-violet); */
+    background-color: rgba(214, 214, 214, 0.162);
+    /* border: 1px solid white; */
     border-radius: 1rem;
     padding: 2rem;
-    border-bottom: 0.35rem solid var(--lt-violet2);
+    
 }
 
 .lengthContainer {
@@ -113,7 +119,18 @@ h1 {
     color:var(--vb-yellow);
     font-size: 1.5rem;
 }
-
+.lm-inputContainer{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(184,182,221,1) 85%, rgba(148,187,233,1) 100%);
+    
+    box-shadow: 1px 1px 25px 1px grey;
+}
+.lm-display-container{
+    
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(184,182,221,1) 85%, rgba(148,187,233,1) 100%);
+    box-shadow: 1px 10px 25px 1px grey;
+}
 
 .strengthContainer{
     display: flex;
@@ -133,20 +150,24 @@ h1 {
     width:1.5rem;
     height:1.5rem;
     border-radius:50%;
+    box-shadow: 1px 1px 10px 1px wheat;
 }
 
 .generateButton {
     width: 100%;
     padding: 1rem 0;
-    background-color: var(--vb-violet);
+    background-color: var(--dk-violet); 
     text-align: center;
     border-radius: 0.75rem;
-    border-bottom: 0.35rem solid var(--vb-yellow);
+    /* color: var(--vb-yellow); */
+    color: white;
+    /* border-bottom: 0.35rem solid var(--vb-yellow); */
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--vb-yellow);
+    /* color: var(--vb-yellow); */
     font-weight: 600;
     font-size: 1.25rem;
+    border: 2px solid white;
   }
 
 .check {
@@ -165,6 +186,9 @@ h1 {
     position: relative;
     border-radius: 0.35rem;
 }
+.lm-check{
+    border:1px solid black;
+}
 
 .navbar{
     position: absolute;
@@ -175,9 +199,14 @@ h1 {
     flex-direction: row;
     background-color: black;
     justify-content: space-between;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
     align-items: center;
+    pointer
+    /* border-bottom: 1px solid white; */
+}
+.navbar div{
+    height:15px;
 }
 .navInput{
     max-width: 25px;
@@ -244,9 +273,68 @@ h1 {
     background-color: transparent;
     border:none;
     outline:none;
+    position:relative;
+    padding-right: 30px;
+}
+.slider{
+    appearance: none;
+    width:100%;
+    height: 0.75rem;
+    cursor: pointer;
+    /* background-color: linear */
+    border: none;
+    background-color: white;  
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    /* background-image: linear-gradient(var(--vb-violet), var(--vb-violet)); */
+    background-repeat: no-repeat;
+    outline:none;
+    /* background-color: aqua; */
+    background-image: linear-gradient(90deg, aqua 0%, aqua 55%, rgb(18, 101, 101) 100%);
+      
+}
+.indicator{
+    height:20px;
+    width:20px;
+    background-color: rgb(70, 70, 70);
+}
+.slider::-webkit-slider-thumb {
+    position:relative;
+    z-index:1;
+    appearance: none;
+    height:2rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color: aqua;
+    cursor:pointer;
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    transition: all 100ms ease-in;
 }
 
-.tooltip {
+.slider::-webkit-slider-thumb:hover{
+    outline: 2px solid var(--vb-yellow);
+    background-color: white;
+    /* box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80); */
+}
+
+
+/*Homework -> Explore below code */
+ .slider::-moz-range-thumb {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    /* background: var(--vb-yellow); */
+    /* box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50); */
+    cursor: pointer;
+  }
+  .tooltip {
+    height:20px;
+    width: 20px;
     position: absolute;
     background-color: var(--vb-violet2);
     color: var(--vb-yellow);
@@ -260,69 +348,7 @@ h1 {
     transform-origin: bottom;
     transition: all 250ms ease-in-out;
   }
-  
   .tooltip.active {
     opacity: 1;
     transform: scale(1);
   }
-
-.slider{
-    appearance: none;
-    width:100%;
-    height: 0.75rem;
-    cursor: pointer;
-    background-color: var(--lt-violet);
-    border-radius: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    background-image: linear-gradient(var(--vb-violet), var(--vb-violet));
-    background-repeat: no-repeat;
-    border:none;
-    outline:none;
-    z-index:-1;
-}
-
-
-.slider::-webkit-slider-thumb {
-    position:relative;
-    z-index:1;
-    appearance: none;
-    height:2rem;
-    width:2rem;
-    border-radius: 50%;
-    background-color: var(--vb-yellow);
-    cursor:pointer;
-    margin-top: -3px;
-    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
-    transition: all 100ms ease-in;
-}
-
-.slider:focus{
-    outline: 3px solid var(--vb-yellow);
-}
-
-.slider::-webkit-slider-thumb:hover{
-    outline: 2px solid var(--vb-yellow);
-    background-color: var(--dk-violet);
-    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
-}
-
-
-/*Homework -> Explore below code */
- .slider::-moz-range-thumb {
-    position: relative;
-    z-index: 1;
-    appearance: none;
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    background: var(--vb-yellow);
-    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
-    cursor: pointer;
-  }
-  
-  /*.slider::-moz-range-thumb:hover {
-    outline: 2px solid var(--vb-yellow);
-    background-color: var(--dk-violet);
-    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
-  }*/
